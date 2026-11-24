@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Shop six Northline solid-body electric guitars and compare single-coil, P-90, and humbucker models.">
+<title>Northline Guitars</title>
+<link rel="preload" as="image" href="assets/northline-editorial-rehearsal.jpg">
+<link rel="stylesheet" href="store.css">
+<script src="store.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="#home" aria-label="Northline Guitars home">NORTHLINE<span>GUITARS</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#shop">All guitars</a>
+      <a href="#shop/single-coil">Single-coil</a>
+      <a href="#shop/humbucker">Humbucker</a>
+    </nav>
+    <nav class="utilities" aria-label="Account and shopping">
+      <a id="account-link" href="#account">Sign in</a>
+      <a href="#cart">Cart <span id="cart-count" class="cart-count" aria-label="0 items">0</span></a>
+    </nav>
+  </div>
+</header>
+<main class="store-main" id="store-view" tabindex="-1"></main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="wordmark" href="#home" aria-label="Northline Guitars home">NORTHLINE<span>GUITARS</span></a>
+      <p>Solid-body electrics for the room you play in.</p>
+    </div>
+    <div><h2>Shop</h2><a href="#shop">All electric guitars</a><a href="#shop/single-coil">Single-coil guitars</a><a href="#shop/humbucker">Humbucker guitars</a></div>
+    <div><h2>Northline</h2><a href="#about">About Us</a><a href="#help">Help Center</a><a href="#help/contact">Contact support</a></div>
+    <div><h2>Orders</h2><a href="#account">My account</a><a href="#help/shipping">Shipping &amp; delivery</a><a href="#help/returns">Returns &amp; warranty</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© Northline Guitars</span><span>United States · USD</span></div>
+</footer>
+<p id="store-status" class="store-status" role="status" aria-live="polite" hidden></p>
+<div id="demo-widget" hidden>
+  <section id="demo-panel" aria-labelledby="demo-title" hidden>
+    <h2 id="demo-title">Northline Guitars Support · Demo</h2>
+    <p>Hi there! Need help choosing a guitar or checking an order?</p>
+  </section>
+  <button id="demo-launch" type="button" aria-controls="demo-panel" aria-expanded="false">Chat with us</button>
+</div>
+<script>
+  const widget = document.getElementById('demo-widget');
+  const launch = document.getElementById('demo-launch');
+  const panel = document.getElementById('demo-panel');
+
+  function setChatOpen(isOpen) {
+    panel.hidden = !isOpen;
+    launch.setAttribute('aria-expanded', String(isOpen));
+    launch.textContent = isOpen ? 'Close chat' : 'Chat with us';
+  }
+
+  function syncDemoMode() {
+    widget.hidden = location.hash !== '#chat-demo';
+    if (widget.hidden) setChatOpen(false);
+  }
+
+  launch.addEventListener('click', () => setChatOpen(panel.hidden));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !panel.hidden) {
+      setChatOpen(false);
+      launch.focus();
+    }
+  });
+  window.addEventListener('hashchange', syncDemoMode);
+  syncDemoMode();
+</script>
+<!-- 在这一行下方粘贴 Sobot 后台复制的完整网页组件代码。 -->
+
+</body>
+</html>
